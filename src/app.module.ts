@@ -7,10 +7,11 @@ import { OffersService } from './service/offers.service.js';
 import { OfferSchema } from './schema/offers.schema.js';
 import 'dotenv/config';
 
-
 @Module({
   imports: [
-    MongooseModule.forRoot(`${process.env.DB_URL}`, { dbName: `${process.env.DB_NAME}` }),
+    MongooseModule.forRoot(`${process.env.DB_URL}`, {
+      dbName: `${process.env.DB_NAME}`,
+    }),
     MongooseModule.forFeature([{ name: 'Offer', schema: OfferSchema }]),
   ],
   controllers: [AppController, OffersController],
