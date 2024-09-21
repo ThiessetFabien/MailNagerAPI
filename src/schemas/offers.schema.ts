@@ -5,26 +5,27 @@ export type OfferDocument = HydratedDocument<Offer>;
 
 @Schema()
 export class Offer {
-  @Prop({ required: true })
+  @Prop()
   link: string;
 
-  @Prop({ required: true })
+  @Prop()
   date: string;
 
-  @Prop({ required: true })
+  @Prop()
   contract: string[];
 
-  @Prop({ required: true })
+  @Prop()
   hourlyRate: string[];
 
-  @Prop({ required: true })
+  @Prop()
   company: string;
 
-  @Prop({ required: true })
+  @Prop()
   location: string;
 
-  @Prop({ required: true })
-  jobTitle: string;
+  @Prop()
+  name: string;
+  // jobTitle
 }
 
 export const OfferSchema = SchemaFactory.createForClass(Offer);
