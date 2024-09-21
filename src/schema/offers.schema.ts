@@ -1,7 +1,4 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
-import { HydratedDocument } from 'mongoose';
-
-export type OfferDocument = HydratedDocument<Offer>;
 
 @Schema()
 export class Offer {
@@ -12,10 +9,10 @@ export class Offer {
   date: string;
 
   @Prop()
-  contract: string[];
+  contract: string;
 
   @Prop()
-  hourlyRate: string[];
+  hourlyRate: string;
 
   @Prop()
   company: string;
@@ -24,8 +21,7 @@ export class Offer {
   location: string;
 
   @Prop()
-  name: string;
-  // jobTitle
+  title: string;
 }
 
 export const OfferSchema = SchemaFactory.createForClass(Offer);

@@ -1,15 +1,35 @@
+import { IsNotEmpty, IsDate, IsString, MaxLength, IsIn } from 'class-validator';
+
 export class CreateOfferDto {
-  link: string;
+  @IsNotEmpty()
+  @IsString()
+  @MaxLength(50)
+  readonly link: string;
 
-  date: string;
+  @IsNotEmpty()
+  @IsDate()
+  readonly date: string;
 
-  contract: string[];
+  @IsNotEmpty()
+  @IsIn(['cdi', 'cdd', 'stage', 'alternance', 'intérim'])
+  readonly contract: string;
 
-  hourlyRate: string[];
+  @IsNotEmpty()
+  @IsIn(['temps plein', 'temps partiel', 'mi-temps', 'freelance'])
+  readonly hourlyRate: string;
 
-  company: string;
+  @IsNotEmpty()
+  @IsString()
+  @MaxLength(50)
+  readonly company: string;
 
-  location: string;
+  @IsNotEmpty()
+  @IsString()
+  @MaxLength(50)
+  readonly location: string;
 
-  jobTitle: string;
+  @IsNotEmpty()
+  @IsString()
+  @MaxLength(50)
+  readonly title: string;
 }
