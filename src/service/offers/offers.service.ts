@@ -8,7 +8,7 @@ import { UpdateOfferDto } from '../../dto/update-offer.dto';
 export class OffersService {
   constructor(
     @InjectModel('Offer') private offerModel: Model<IOffer>,
-    @InjectConnection() private connection: Connection
+    @InjectConnection() private connection: Connection,
   ) {}
 
   async createOffer(createOfferDto: CreateOfferDto): Promise<IOffer> {
