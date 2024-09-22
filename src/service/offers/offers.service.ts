@@ -1,9 +1,9 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
-import { CreateOfferDto } from '../dto/create-offer.dto';
-import { IOffer } from '../interface/offer.interface';
+import { CreateOfferDto } from '../../dto/create-offer.dto';
+import { IOffer } from '../../interface/offer.interface';
 import { Model } from 'mongoose';
-import { UpdateOfferDto } from '../dto/update-offer.dto';
+import { UpdateOfferDto } from '../../dto/update-offer.dto';
 
 @Injectable()
 export class OffersService {

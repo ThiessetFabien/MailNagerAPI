@@ -10,9 +10,9 @@ import {
   Res,
 } from '@nestjs/common';
 import { Response } from 'express';
-import { CreateOfferDto } from '../dto/create-offer.dto.js';
-import { UpdateOfferDto } from '../dto/update-offer.dto.js';
-import { OffersService } from '../service/offers.service.js';
+import { CreateOfferDto } from '../../dto/create-offer.dto';
+import { UpdateOfferDto } from '../../dto/update-offer.dto';
+import { OffersService } from '../../service/offers/offers.service';
 
 @Controller('offers')
 export class OffersController {
