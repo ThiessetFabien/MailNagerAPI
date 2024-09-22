@@ -1,0 +1,93 @@
+[
+    {
+      "link": "https://example.com/offer1",
+      "date": "2023-10-01T00:00:00Z",
+      "contract": "cdi",
+      "hourlyRate": "temps plein",
+      "company": "Entreprise A",
+      "location": "Paris",
+      "title": "Développeur Web"
+    },
+    {
+      "link": "https://example.com/offer2",
+      "date": "2023-10-02T00:00:00Z",
+      "contract": "cdd",
+      "hourlyRate": "temps partiel",
+      "company": "Entreprise B",
+      "location": "Lyon",
+      "title": "Designer Graphique"
+    },
+    {
+      "link": "https://example.com/offer3",
+      "date": "2023-10-03T00:00:00Z",
+      "contract": "stage",
+      "hourlyRate": "mi-temps",
+      "company": "Entreprise C",
+      "location": "Marseille",
+      "title": "Assistant Marketing"
+    },
+    {
+      "link": "https://example.com/offer4",
+      "date": "2023-10-04T00:00:00Z",
+      "contract": "alternance",
+      "hourlyRate": "freelance",
+      "company": "Entreprise D",
+      "location": "Bordeaux",
+      "title": "Chef de Projet"
+    },
+    {
+      "link": "https://example.com/offer5",
+      "date": "2023-10-05T00:00:00Z",
+      "contract": "intérim",
+      "hourlyRate": "temps plein",
+      "company": "Entreprise E",
+      "location": "Nice",
+      "title": "Analyste de Données"
+    },
+    {
+      "link": "https://example.com/offer6",
+      "date": "2023-10-06T00:00:00Z",
+      "contract": "cdi",
+      "hourlyRate": "temps partiel",
+      "company": "Entreprise F",
+      "location": "Toulouse",
+      "title": "Développeur Mobile"
+    },
+    {
+      "link": "https://example.com/offer7",
+      "date": "2023-10-07T00:00:00Z",
+      "contract": "cdd",
+      "hourlyRate": "mi-temps",
+      "company": "Entreprise G",
+      "location": "Nantes",
+      "title": "Responsable RH"
+    },
+    {
+      "link": "https://example.com/offer8",
+      "date": "2023-10-08T00:00:00Z",
+      "contract": "stage",
+      "hourlyRate": "freelance",
+      "company": "Entreprise H",
+      "location": "Strasbourg",
+      "title": "Développeur Frontend"
+    },
+    {
+      "link": "https://example.com/offer9",
+      "date": "2023-10-09T00:00:00Z",
+      "contract": "alternance",
+      "hourlyRate": "temps plein",
+      "company": "Entreprise I",
+      "location": "Lille",
+      "title": "Technicien Support"
+    },
+    {
+      "link": "https://example.com/offer10",
+      "date": "2023-10-10T00:00:00Z",
+      "contract": "intérim",
+      "hourlyRate": "temps partiel",
+      "company": "Entreprise J",
+      "location": "Rennes",
+      "title": "Consultant IT"
+    }
+  ]
+  

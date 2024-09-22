@@ -1,6 +1,5 @@
 import { Module } from '@nestjs/common';
 import { MongooseModule } from '@nestjs/mongoose';
-import { AppController } from './app.controller';
 import { OffersController } from './controller/offers.controller.js';
 import { AppService } from './app.service';
 import { OffersService } from './service/offers.service.js';
@@ -14,7 +13,7 @@ import 'dotenv/config';
     }),
     MongooseModule.forFeature([{ name: 'Offer', schema: OfferSchema }]),
   ],
-  controllers: [AppController, OffersController],
+  controllers: [OffersController],
   providers: [AppService, OffersService],
 })
 export class AppModule {}
