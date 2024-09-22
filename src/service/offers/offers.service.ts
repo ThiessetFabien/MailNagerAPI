@@ -1,13 +1,15 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { InjectModel } from '@nestjs/mongoose';
+import { InjectModel, InjectConnection } from '@nestjs/mongoose';
+import { Model, Connection } from 'mongoose';
 import { CreateOfferDto } from '../../dto/create-offer.dto';
 import { IOffer } from '../../interface/offer.interface';
-import { Model } from 'mongoose';
 import { UpdateOfferDto } from '../../dto/update-offer.dto';
-
 @Injectable()
 export class OffersService {
-  constructor(@InjectModel('Offer') private offerModel: Model<IOffer>) {}
+  constructor(
+    @InjectModel('Offer') private offerModel: Model<IOffer>,
+    @InjectConnection() private connection: Connection
+  ) {}
 
   async createOffer(createOfferDto: CreateOfferDto): Promise<IOffer> {
     const newOffer = new this.offerModel(createOfferDto);
