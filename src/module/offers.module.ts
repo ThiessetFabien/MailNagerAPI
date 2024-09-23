@@ -7,8 +7,11 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { OfferSchema } from '../schema/offers.schema';
 
 @Module({
-  imports: [MongooseModule.forFeature([{ name: 'Offer', schema: OfferSchema }]),
-    DatabaseModule],
+  imports: [
+    MongooseModule.forRoot(`${process.env.DB_URL}`),
+    MongooseModule.forFeature([{ name: 'Offer', schema: OfferSchema }]),
+    DatabaseModule,
+  ],
   controllers: [OffersController],
   providers: [OffersService, ...offersProviders],
 })

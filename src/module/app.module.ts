@@ -6,10 +6,7 @@ import { OffersModule } from './offers.module.js';
 import { AppService } from '../service/app.service';
 import { DatabaseModule } from './database.module.js';
 @Module({
-  imports: [MongooseModule.forRoot(`${process.env.DB_URL}`),
-    OffersModule, 
-    DatabaseModule
-  ],
+  imports: [OffersModule, DatabaseModule],
   controllers: [AppController],
   providers: [AppService],
 })
