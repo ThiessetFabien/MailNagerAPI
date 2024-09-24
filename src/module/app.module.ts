@@ -6,8 +6,11 @@ import { AppController } from '../controller/app.controller';
 import { AppService } from '../service/app.service';
 @Module({
   imports: [
-    ConfigModule.forRoot(),
-    MongooseModule.forRoot(`${process.env.DB_URL}/${process.env.DB_NAME}`),
+    ConfigModule.forRoot({
+      envFilePath: '.env',
+      isGlobal: true,
+    }),
+    MongooseModule.forRoot(`${process.env.DB_URL}`),
     OffersModule,
   ],
   controllers: [AppController],

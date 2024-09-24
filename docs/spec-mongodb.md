@@ -1,7 +1,7 @@
 ## Schema of offer document model on MongoDB
 ```json
 {
-    "id": number,   // auto-increment
+    "id": string,   // auto-increment
     "link": string, // uri
     "date": date,   // date of application
     "contract": [ 
