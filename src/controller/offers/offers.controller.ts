@@ -67,7 +67,7 @@ export class OffersController {
   async getAllOffers(@Res() response: Response) {
     try {
       const offers = await this.offersService.findAllOffers();
-      
+
       return response.status(HttpStatus.OK).json({
         message: 'All offer data found successfully',
         offers,

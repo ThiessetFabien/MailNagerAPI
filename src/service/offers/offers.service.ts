@@ -1,5 +1,5 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
-import { InjectModel, InjectConnection } from '@nestjs/mongoose';
+import { InjectModel } from '@nestjs/mongoose';
 import * as mongoose from 'mongoose';
 import { CreateOfferDto } from '../../dto/create-offer.dto';
 import { IOffer } from '../../interface/offer.interface';
@@ -9,7 +9,6 @@ import { Offer } from '../../schema/offers.schema';
 export class OffersService {
   constructor(
     @InjectModel(Offer.name) private offerModel: mongoose.Model<Offer>,
-    // @InjectConnection() private connection: Connection,
   ) {}
 
   async createOffer(createOfferDto: CreateOfferDto): Promise<IOffer> {
@@ -32,7 +31,7 @@ export class OffersService {
     return existingOffer;
   }
 
-  async findAllOffers(): Promise<Offer[]> {
+  async findAllOffers(): Promise<IOffer[]> {
     const offers = await this.offerModel.find();
     return offers;
   }
