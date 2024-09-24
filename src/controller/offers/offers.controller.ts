@@ -13,10 +13,11 @@ import { Response } from 'express';
 import { CreateOfferDto } from '../../dto/create-offer.dto';
 import { UpdateOfferDto } from '../../dto/update-offer.dto';
 import { OffersService } from '../../service/offers/offers.service';
+import { Offer } from '../../schema/offers.schema';
 
 @Controller('offers')
 export class OffersController {
-  constructor(private readonly offersService: OffersService) {}
+  constructor(private offersService: OffersService) {}
 
   @Post()
   async createOffer(
@@ -65,10 +66,11 @@ export class OffersController {
   @Get()
   async getAllOffers(@Res() response: Response) {
     try {
-      const offerData = await this.offersService.getAllOffers();
+      const offers = await this.offersService.findAllOffers();
+      
       return response.status(HttpStatus.OK).json({
         message: 'All offer data found successfully',
-        offerData,
+        offers,
       });
     } catch (error) {
       return response.status(HttpStatus.NOT_FOUND).json({
@@ -82,7 +84,7 @@ export class OffersController {
   @Get('/:id')
   async getOffer(@Res() response: Response, @Param('id') offerId: string) {
     try {
-      const existingOffer = await this.offersService.getOffer(offerId);
+      const existingOffer = await this.offersService.findOneOffer(offerId);
       return response.status(HttpStatus.OK).json({
         message: 'Offer data found successfully',
         existingOffer,

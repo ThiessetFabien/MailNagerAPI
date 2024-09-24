@@ -1,14 +1,15 @@
 import { Injectable, NotFoundException } from '@nestjs/common';
 import { InjectModel, InjectConnection } from '@nestjs/mongoose';
-import { Model, Connection } from 'mongoose';
+import * as mongoose from 'mongoose';
 import { CreateOfferDto } from '../../dto/create-offer.dto';
 import { IOffer } from '../../interface/offer.interface';
 import { UpdateOfferDto } from '../../dto/update-offer.dto';
+import { Offer } from '../../schema/offers.schema';
 @Injectable()
 export class OffersService {
   constructor(
-    @InjectModel('Offer') private offerModel: Model<IOffer>,
-    @InjectConnection() private connection: Connection,
+    @InjectModel(Offer.name) private offerModel: mongoose.Model<Offer>,
+    // @InjectConnection() private connection: Connection,
   ) {}
 
   async createOffer(createOfferDto: CreateOfferDto): Promise<IOffer> {
@@ -31,15 +32,12 @@ export class OffersService {
     return existingOffer;
   }
 
-  async getAllOffers(): Promise<IOffer[]> {
-    const offerData = await this.offerModel.find();
-    if (!offerData || offerData.length === 0) {
-      throw new NotFoundException('Offers data not found');
-    }
-    return offerData;
+  async findAllOffers(): Promise<Offer[]> {
+    const offers = await this.offerModel.find();
+    return offers;
   }
 
-  async getOffer(offerId: string): Promise<IOffer> {
+  async findOneOffer(offerId: string): Promise<IOffer> {
     const existingOffer = await this.offerModel.findById(offerId).exec();
     if (!existingOffer) {
       throw new NotFoundException(`Offer #${offerId} not found`);
