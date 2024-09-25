@@ -19,8 +19,46 @@ import { Offer } from '../../schema/offers.schema';
 export class OffersController {
   constructor(private offersService: OffersService) {}
 
+  @Get()
+  async getAllOffers( 
+    @Res() response: Response) {
+    try {
+      const offers = await this.offersService.findAllOffers();
+
+      return response.status(HttpStatus.OK).json({
+        message: 'All offer data found successfully',
+        offers,
+      });
+    } catch (error) {
+      return response.status(HttpStatus.NOT_FOUND).json({
+        statusCode: 404,
+        message: 'Error: Offers not found',
+        error: 'Not Found',
+      });
+    }
+  }
+
+  @Get('/:id')
+  async getOffer( 
+    @Res() response: Response, 
+    @Param('id') offerId: string) {
+    try {
+      const existingOffer = await this.offersService.findOneOffer(offerId);
+      return response.status(HttpStatus.OK).json({
+        message: 'Offer data found successfully',
+        existingOffer,
+      });
+    } catch (error) {
+      return response.status(HttpStatus.NOT_FOUND).json({
+        statusCode: 404,
+        message: 'Error: Offer not found',
+        error: 'Not Found',
+      });
+    }
+  }
+
   @Post()
-  async createOffer(
+  async createOffer( 
     @Res() response: Response,
     @Body() createOfferDto: CreateOfferDto,
   ) {
@@ -40,7 +78,7 @@ export class OffersController {
   }
 
   @Put('/:id')
-  async updateOffer(
+  async updateOffer( 
     @Res() response: Response,
     @Param('id') offerId: string,
     @Body() updateOfferDto: UpdateOfferDto,
@@ -63,43 +101,10 @@ export class OffersController {
     }
   }
 
-  @Get()
-  async getAllOffers(@Res() response: Response) {
-    try {
-      const offers = await this.offersService.findAllOffers();
-
-      return response.status(HttpStatus.OK).json({
-        message: 'All offer data found successfully',
-        offers,
-      });
-    } catch (error) {
-      return response.status(HttpStatus.NOT_FOUND).json({
-        statusCode: 404,
-        message: 'Error: Offers not found',
-        error: 'Not Found',
-      });
-    }
-  }
-
-  @Get('/:id')
-  async getOffer(@Res() response: Response, @Param('id') offerId: string) {
-    try {
-      const existingOffer = await this.offersService.findOneOffer(offerId);
-      return response.status(HttpStatus.OK).json({
-        message: 'Offer data found successfully',
-        existingOffer,
-      });
-    } catch (error) {
-      return response.status(HttpStatus.NOT_FOUND).json({
-        statusCode: 404,
-        message: 'Error: Offer not found',
-        error: 'Not Found',
-      });
-    }
-  }
-
   @Delete('/:id')
-  async deleteOffer(@Res() response: Response, @Param('id') offerId: string) {
+  async deleteOffer( 
+    @Res() response: Response, 
+    @Param('id') offerId: string) {
     try {
       const deletedOffer = await this.offersService.deleteOffer(offerId);
       return response.status(HttpStatus.OK).json({
