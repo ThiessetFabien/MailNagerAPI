@@ -11,11 +11,11 @@ export class CreateOfferDto {
   readonly date: string;
 
   @IsNotEmpty()
-  @IsIn(['cdi', 'cdd', 'stage', 'alternance', 'intérim'])
+  @IsIn(['Cdi', 'Cdd', 'Stage', 'Alternance', 'Intérim'])
   readonly contract: string;
 
   @IsNotEmpty()
-  @IsIn(['temps plein', 'temps partiel', 'mi-temps', 'freelance'])
+  @IsIn(['Temps plein', 'Temps partiel', 'Mi-temps', 'Freelance'])
   readonly hourlyRate: string;
 
   @IsNotEmpty()
