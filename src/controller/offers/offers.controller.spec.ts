@@ -5,7 +5,6 @@ import { CreateOfferDto } from '../../dto/create-offer.dto';
 import { UpdateOfferDto } from '../../dto/update-offer.dto';
 import { HttpStatus } from '@nestjs/common';
 import { Response } from 'express';
-import { Contract, HourlyRate } from 'src/schema/offers.schema.js';
 
 describe('OffersController', () => {
   let controller: OffersController;

@@ -13,11 +13,10 @@ import { Response } from 'express';
 import { CreateOfferDto } from '../../dto/create-offer.dto';
 import { UpdateOfferDto } from '../../dto/update-offer.dto';
 import { OffersService } from '../../service/offers/offers.service';
-import { Offer } from '../../schema/offers.schema';
 
 @Controller('offers')
 export class OffersController {
-  constructor(private offersService: OffersService) {}
+  constructor(private readonly offersService: OffersService) {}
 
   @Get()
   async getAllOffers( 
