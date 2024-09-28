@@ -12,8 +12,7 @@ export class OffersService {
   ) {}
 
   async createOffer(createOfferDto: CreateOfferDto): Promise<IOffer> {
-    const newOffer = new this.offerModel(createOfferDto);
-    return newOffer.save();
+    return new this.offerModel(createOfferDto).save();
   }
 
   async updateOffer(

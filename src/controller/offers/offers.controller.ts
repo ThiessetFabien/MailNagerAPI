@@ -19,8 +19,7 @@ export class OffersController {
   constructor(private readonly offersService: OffersService) {}
 
   @Get()
-  async getAllOffers( 
-    @Res() response: Response) {
+  async getAllOffers(@Res() response: Response) {
     try {
       const offers = await this.offersService.findAllOffers();
 
@@ -38,9 +37,7 @@ export class OffersController {
   }
 
   @Get('/:id')
-  async getOffer( 
-    @Res() response: Response, 
-    @Param('id') offerId: string) {
+  async getOffer(@Res() response: Response, @Param('id') offerId: string) {
     try {
       const existingOffer = await this.offersService.findOneOffer(offerId);
       return response.status(HttpStatus.OK).json({
@@ -57,7 +54,7 @@ export class OffersController {
   }
 
   @Post()
-  async createOffer( 
+  async createOffer(
     @Res() response: Response,
     @Body() createOfferDto: CreateOfferDto,
   ) {
@@ -77,7 +74,7 @@ export class OffersController {
   }
 
   @Put('/:id')
-  async updateOffer( 
+  async updateOffer(
     @Res() response: Response,
     @Param('id') offerId: string,
     @Body() updateOfferDto: UpdateOfferDto,
@@ -101,9 +98,7 @@ export class OffersController {
   }
 
   @Delete('/:id')
-  async deleteOffer( 
-    @Res() response: Response, 
-    @Param('id') offerId: string) {
+  async deleteOffer(@Res() response: Response, @Param('id') offerId: string) {
     try {
       const deletedOffer = await this.offersService.deleteOffer(offerId);
       return response.status(HttpStatus.OK).json({
