@@ -7,5 +7,5 @@ export interface IOffer extends Document {
   readonly hourlyRate: string;
   readonly company: string;
   readonly location: string;
-  readonly title: string;
+  readonly name: string;
 }

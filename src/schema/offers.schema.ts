@@ -18,26 +18,26 @@ export const enum HourlyRate {
   timestamps: true,
 })
 export class Offer {
-  @Prop({ required: true })
+  @Prop()
   link: string;
 
-  @Prop({ required: true })
+  @Prop()
   date: string;
 
-  @Prop({ required: true })
-  contract: Contract;
+  @Prop()
+  contract: string;
 
-  @Prop({ required: true })
-  hourlyRate: HourlyRate;
+  @Prop()
+  hourlyRate: string;
 
-  @Prop({ required: true })
+  @Prop()
   company: string;
 
-  @Prop({ required: true })
+  @Prop()
   location: string;
 
   @Prop({ required: true })
-  title: string;
+  name: string;
 }
 
 export const OfferSchema = SchemaFactory.createForClass(Offer);
