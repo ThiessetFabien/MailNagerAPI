@@ -35,8 +35,7 @@ describe('OffersService', () => {
   });
 
   it('should create an offer', async () => {
-    const createOfferDto = { title: 'Test Offer' };
-    mockOfferModel.new.mockReturnValue(createOfferDto);
+    const createOfferDto = { name: 'Test Offer' };
     mockOfferModel.new.mockReturnValue({
       save: jest.fn().mockResolvedValue(createOfferDto),
     });
@@ -46,7 +45,7 @@ describe('OffersService', () => {
   });
 
   it('should update an offer', async () => {
-    const updateOfferDto = { title: 'Updated Offer' };
+    const updateOfferDto = { name: 'Updated Offer' };
     const offerId = 'someId';
     mockOfferModel.findByIdAndUpdate.mockResolvedValue(updateOfferDto);
 
@@ -55,7 +54,7 @@ describe('OffersService', () => {
   });
 
   it('should throw NotFoundException when updating non-existing offer', async () => {
-    const updateOfferDto = { title: 'Updated Offer' };
+    const updateOfferDto = { name: 'Updated Offer' };
     const offerId = 'nonExistingId';
     mockOfferModel.findByIdAndUpdate.mockResolvedValue(null);
 
@@ -65,7 +64,7 @@ describe('OffersService', () => {
   });
 
   it('should find all offers', async () => {
-    const offers = [{ title: 'Offer1' }, { title: 'Offer2' }];
+    const offers = [{ name: 'Offer1' }, { name: 'Offer2' }];
     mockOfferModel.find.mockResolvedValue(offers);
 
     const result = await service.findAllOffers();
@@ -73,7 +72,7 @@ describe('OffersService', () => {
   });
 
   it('should find one offer', async () => {
-    const offer = { title: 'Offer1' };
+    const offer = { name: 'Offer1' };
     const offerId = 'someId';
     mockOfferModel.findById.mockResolvedValue({
       exec: jest.fn().mockResolvedValue(offer),
@@ -95,7 +94,7 @@ describe('OffersService', () => {
   });
 
   it('should delete an offer', async () => {
-    const offer = { title: 'Offer1' };
+    const offer = { name: 'Offer1' };
     const offerId = 'someId';
     mockOfferModel.findByIdAndDelete.mockResolvedValue(offer);
 

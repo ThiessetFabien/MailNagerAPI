@@ -4,6 +4,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { OffersModule } from './offers.module';
 import { AppController } from '../controller/app.controller';
 import { AppService } from '../service/app.service';
+import { OfferSchema } from '../schema/offers.schema';
 @Module({
   imports: [
     ConfigModule.forRoot({
@@ -11,6 +12,7 @@ import { AppService } from '../service/app.service';
       isGlobal: true,
     }),
     MongooseModule.forRoot(`${process.env.DB_URL}`),
+    MongooseModule.forFeature([{ name: 'Offer', schema: OfferSchema }]),
     OffersModule,
   ],
   controllers: [AppController],

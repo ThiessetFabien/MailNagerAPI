@@ -18,7 +18,7 @@ describe('OffersController', () => {
     HourlyRate: 'Mi-plein',
     compagny: 'Test Compagny',
     location: 'Test Location',
-    title: 'Test Offer',
+    title: 'Test Offer'
   };
 
   const mockOffersService = {
@@ -59,11 +59,11 @@ describe('OffersController', () => {
     const createOfferDto: CreateOfferDto = {
       link: 'http://test.com',
       date: '2021-01-01',
-      contract: 'Intérim',
-      hourlyRate: 'Mi-plein',
+      Contract: 'Intérim',
+      HourlyRate: 'Mi-plein',
       company: 'Test Compagny',
       location: 'Test Location',
-      title: 'Test Offer',
+      name: 'Test Offer'
     };
     const res = mockResponse();
 
@@ -81,11 +81,11 @@ describe('OffersController', () => {
     const updateOfferDto: UpdateOfferDto = {
       link: 'http://test.com',
       date: '2021-01-01',
-      contract: 'Intérim',
-      hourlyRate: 'Mi-plein',
+      Contract: 'Intérim',
+      HourlyRate: 'Mi-plein',
       company: 'Test Compagny',
       location: 'Test Location',
-      title: 'Test Offer',
+      name: 'Test Offer'
     };
     const res = mockResponse();
 

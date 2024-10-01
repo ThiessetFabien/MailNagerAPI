@@ -1,4 +1,5 @@
 import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { CreateOfferDto } from 'src/dto/create-offer.dto.js';
 
 export const enum Contract {
   CDI = 'CDI',
@@ -18,6 +19,9 @@ export const enum HourlyRate {
   timestamps: true,
 })
 export class Offer {
+  static create(createOfferDto: CreateOfferDto) {
+    throw new Error('Method not implemented.');
+  }
   @Prop()
   link: string;
 
@@ -25,10 +29,10 @@ export class Offer {
   date: string;
 
   @Prop()
-  contract: string;
+  contract: Contract;
 
   @Prop()
-  hourlyRate: string;
+  hourlyRate: HourlyRate;
 
   @Prop()
   company: string;

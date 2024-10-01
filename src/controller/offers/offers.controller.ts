@@ -21,11 +21,11 @@ export class OffersController {
   @Get()
   async getAllOffers(@Res() response: Response) {
     try {
-      const offers = await this.offersService.findAllOffers();
+      const offersData = await this.offersService.findAllOffers();
 
       return response.status(HttpStatus.OK).json({
         message: 'All offer data found successfully',
-        offers,
+        offersData,
       });
     } catch (error) {
       return response.status(HttpStatus.NOT_FOUND).json({
