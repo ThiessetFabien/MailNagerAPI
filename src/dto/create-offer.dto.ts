@@ -7,10 +7,6 @@ export class CreateOfferDto {
   readonly link: string;
 
   @IsNotEmpty()
-  @IsDate()
-  readonly date: string;
-
-  @IsNotEmpty()
   @IsIn(['Cdi', 'Cdd', 'Stage', 'Alternance', 'Intérim'])
   readonly Contract: string;
 

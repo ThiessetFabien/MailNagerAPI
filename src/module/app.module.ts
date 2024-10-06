@@ -9,9 +9,8 @@ import { OfferSchema } from '../schema/offers.schema';
   imports: [
     ConfigModule.forRoot({
       envFilePath: '.env',
-      isGlobal: true,
     }),
-    MongooseModule.forRoot(`${process.env.DB_URL}`),
+    MongooseModule.forRoot(process.env.DB_URL as string),
     MongooseModule.forFeature([{ name: 'Offer', schema: OfferSchema }]),
     OffersModule,
   ],

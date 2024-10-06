@@ -1,13 +1,45 @@
-GET http://localhost:3000/ HTTP/1.1 : 200 Success
-Accept: application/json
+# GET - 200 Success
+http://localhost:3000/
+###
 
-GET http://localhost:3000/offers/ HTTP/1.1 : 200 Success
-Accept: application/json
+# GET - 200 Success
+http://localhost:3000/offers/
+###
 
-POST https://api.example.com/endpoint HTTP/1.1
+# GET - 200 Success
+http://localhost:3000/offers/6702d7de5e3550abbc748f12
+###
+
+POST http://localhost:3000/offers/
+Accept: application/json
 Content-Type: application/json
 
 {
-    "key1": "value1",
-    "key2": "value2"
+    "name": "test",
+    "link": "test",
+    "Contract": "Cdi",
+    "HourlyRate": "Temps plein",
+    "company": "test",
+    "location": "Paris"
 }
+###
+
+# PUT - 200 Success
+PUT http://localhost:3000/offers/6702d7de5e3550abbc748f12
+Accept: application/json
+Content-Type: application/json
+
+{
+    "_id": "6702d7de5e3550abbc748f12",
+    "name": "test2",
+    "link": "test2",
+    "Contract": "Cdi",
+    "HourlyRate": "Mi-temps",
+    "company": "test2",
+    "location": "Paris"
+}
+###
+
+# DELETE - 200 Success
+DELETE http://localhost:3000/offers/6702d7de5e3550abbc748f12
+###

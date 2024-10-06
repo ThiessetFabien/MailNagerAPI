@@ -26,9 +26,6 @@ export class Offer {
   link: string;
 
   @Prop()
-  date: string;
-
-  @Prop()
   contract: Contract;
 
   @Prop()
