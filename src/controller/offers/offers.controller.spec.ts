@@ -18,7 +18,7 @@ describe('OffersController', () => {
     HourlyRate: 'Mi-plein',
     compagny: 'Test Compagny',
     location: 'Test Location',
-    title: 'Test Offer'
+    title: 'Test Offer',
   };
 
   const mockOffersService = {
@@ -63,7 +63,7 @@ describe('OffersController', () => {
       HourlyRate: 'Mi-plein',
       company: 'Test Compagny',
       location: 'Test Location',
-      name: 'Test Offer'
+      name: 'Test Offer',
     };
     const res = mockResponse();
 
@@ -85,7 +85,7 @@ describe('OffersController', () => {
       HourlyRate: 'Mi-plein',
       company: 'Test Compagny',
       location: 'Test Location',
-      name: 'Test Offer'
+      name: 'Test Offer',
     };
     const res = mockResponse();
 
